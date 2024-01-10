@@ -1,0 +1,5 @@
+C:\Users\user1\Desktop\תכנות\תכנות תשפד\filesB\publish\filesB.exe
+C:\Users\user1\Desktop\תכנות\תכנות תשפד\filesB\publish\filesB.dll
+C:\Users\user1\Desktop\תכנות\תכנות תשפד\filesB\publish\filesB.deps.json
+C:\Users\user1\Desktop\תכנות\תכנות תשפד\filesB\publish\filesB.runtimeconfig.json
+C:\Users\user1\Desktop\תכנות\תכנות תשפד\filesB\publish\filesB.pdb
