@@ -34,17 +34,17 @@ class Program
 
             Console.Write("Enter value for note (true/false): ");
             var noteValue = Console.ReadLine();
-            while(!(noteValue=="true"|| noteValue == "false"))
+            while (!(noteValue == "true" || noteValue == "false"))
             {
 
                 Console.Write("Enter again value for note (true/false): ");
                 noteValue = Console.ReadLine();
             }
             bool.TryParse(noteValue, out bool note);
-            
 
 
-            Console.Write("Enter value for sort: ");
+
+            Console.Write("Enter value for sort:{filetype/alfabetic ");
             var sortValue = Console.ReadLine();
 
             Console.Write("Enter value for remove-empty-lines (true/false): ");
@@ -81,7 +81,7 @@ class Program
         bundleCommand.AddOption(authorOption);
         bundleCommand.SetHandler((language, output, note, sort, removeEmptyLines, author) =>
         {
-            
+
             try
             {
                 string[] files;
@@ -94,7 +94,7 @@ class Program
                 }
                 else
                 {
-                    Console.WriteLine("rivki not all");
+
                     // Get files with the specified language extension
 
                     var languages = language.Split(',').Select(lang => lang.Trim());
@@ -104,43 +104,35 @@ class Program
                         .Distinct()
                         .ToArray();
                 }
-
                 if (files.Length == 0)
                 {
-                    Console.WriteLine("rivki length 0");
                     Console.WriteLine($"No files found with the {language} extension.");
                     return;
                 }
 
-                // Sort files based on the specified order
-                if (sort?.ToLower() == "alphabetical")
-                {
-                    Console.WriteLine("rivki sort");
-                    Array.Sort(files);
-                }
-
+                files = SortFiles(files, sort);
                 using (StreamWriter writer = new StreamWriter(output?.FullName ?? "output.txt"))
                 {
                     if (note)
                     {
-                        Console.WriteLine("rivki note");
+
                         // Write a comment with the author's name
                         writer.WriteLine($"// Author: {author}");
                     }
 
                     foreach (var file in files)
                     {
-                        Console.WriteLine("rivki foreach");
+
                         // Read content from each file
                         string fileContent = File.ReadAllText(file);
 
                         // Optionally, remove empty lines
                         if (removeEmptyLines)
                         {
-                            Console.WriteLine("rivki removeEmptyLines");
+
                             fileContent = RemoveEmptyLines(fileContent);
                         }
-                        Console.WriteLine("rivki after removeEmptyLines");
+
                         // Write the content to the output file
                         writer.WriteLine($"// Start of {Path.GetFileName(file)}");
                         writer.WriteLine(fileContent);
@@ -148,8 +140,9 @@ class Program
                         writer.WriteLine();
                     }
                 }
-                Console.WriteLine("rivki  end");
+                Console.WriteLine("pnina  end");
                 Console.WriteLine($"Files bundled successfully. Output saved to {output?.FullName ?? "output.txt"}");
+
             }
             catch (Exception ex)
             {
@@ -174,8 +167,28 @@ class Program
         // Join the non-empty lines back into a string
         return string.Join(Environment.NewLine, lines);
     }
-}
+    static string[] SortFiles(string[] files, string sortBy)
+    {
 
+
+        if (sortBy.ToLower() == "filetype")
+        {
+            Array.Sort(files, (file1, file2) =>
+            {
+                string ext1 = Path.GetExtension(file1);
+                string ext2 = Path.GetExtension(file2);
+                return ext1.CompareTo(ext2);
+            });
+        }
+        else
+            Array.Sort(files);
+
+
+
+        return files;
+    }
+
+}
 
 
 

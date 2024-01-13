@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cm4OccKEwG2aAv1IieRdsND0YNP8Wp+sv7rCG3DnFa4uFK2SleUMtCSPnc8911ZpwWR0pZ/Y8pCTdHwIM1Bvcw==",
+  "dgSpecHash": "IbEJz1dkNuFMG6NR/021OkTq+JzzWlFBj1NntAua/IHZqUL/oSRIEc6jKYAEKGtXHEhMXHAelgoRBVc83xS3dQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user1\\Desktop\\לימודים שנה ב\\פרקטיקוד\\filesB\\filesB.csproj",
+  "projectFilePath": "C:\\Users\\user1\\Desktop\\לימודים שנה ב\\פרקטיקוד\\Practicod1\\filesB\\filesB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user1\\.nuget\\packages\\commandlineparser\\2.9.1\\commandlineparser.2.9.1.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\documentformat.openxml\\3.0.0\\documentformat.openxml.3.0.0.nupkg.sha512",
