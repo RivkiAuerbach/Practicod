@@ -169,6 +169,11 @@ class Program
     }
 }
 
+//cmd:
+//filesB create-rsp
+//filesB bundle @response.rsp
+
+//filesB bundle --l all -- o rivki.txt --s alphabetical --n false --a rivkiii --re true  
 
 
 
